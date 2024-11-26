@@ -10,14 +10,14 @@ function Testimonials() {
                 <div className="flex space-x-0 lg:space-x-6 flex-wrap space-y-6 px-6">
                     <div className="p-0 w-full lg:w-[352px] lg:mt-6 m-0 rounded-[32px]  boxShadow hover:shadow-2xl hover:shadow-[#EBF5FF]">
 
-                        <Tesimonials_Card percentage={"90%"} text={"Faster than industry standards"} />
+                        <Tesimonials_Card percentage={"90%"} text={"Promote Cultural Exchange"} />
                     </div>
                     <div className="p-0 m-0 lg:w-[352px] rounded-[32px] w-full boxShadow hover:shadow-2xl hover:shadow-[#EBF5FF]">
 
-                        <Tesimonials_Card percentage={"94%"} text={"Cheaper compared to competitors"} />
+                        <Tesimonials_Card percentage={"94%"} text={"Empower Communities"} />
                     </div>
                     <div className="p-0 m-0 lg:w-[352px] rounded-[32px] w-full boxShadow hover:shadow-2xl hover:shadow-[#EBF5FF]">
-                        <Tesimonials_Card percentage={"99%"} text={"Accuracy in translations"} />
+                        <Tesimonials_Card percentage={"99%"} text={"Smart Farming and Tourism Solutions"} />
                     </div>
                 </div>
                 {/* <CTAWideBtn /> */}

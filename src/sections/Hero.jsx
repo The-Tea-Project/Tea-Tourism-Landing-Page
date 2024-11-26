@@ -11,11 +11,10 @@ function Hero() {
 
                 <div className=" text-center self-center justify-self-center my-auto z-10 w-full">
                     <div className="font-satoshi lg:text-[56px] text-[40px] lg:leading-[67px] leading-[48px] font-bold">
-                        AI Dubbing and Translation <br />
-                        for <span className='text-[#0A47F2] '>Media</span>
+                    Welcome to  <span className='text-[#0A47F2] '>TeaTech</span>
                     </div>
-                    <div className="font-satoshiMed lg:text-[20px] text-[14px] px-12 lg:leading-[30px] font-normal pt-[24px]">
-                        Globalize your content with lip-sync, preserved original voices, and accurate <br /> on-screen text translation—faster and more cost-effectively than ever
+                    <div className="font-satoshiMed lg:px-80 lg:text-[20px] text-[14px] px-12 lg:leading-[30px] font-normal pt-[24px]">
+                    TeaTech is a transformative project designed to revolutionize tea farming communities by blending tradition with technology. Our platform empowers local farmers, boosts tourism, and supports cultural exchange through cutting-edge digital tools and education.
                     </div>
                     <div className="mt-[14px]">
                         <CTABtn />
@@ -27,7 +26,7 @@ function Hero() {
                 <div className="flex-col flex items-center justify-center overflow-hidden">
 
                     <div className="lg:text-[16px] text-[12px] font-satoshiMed mt-8">
-                        Helping people translate videos at
+                    Empowering Tea Farming Communities through Digital Innovation
                     </div>
                     <CompniesLogo />
                 </div>

@@ -13,7 +13,7 @@ function NavBar() {
         <>
             <div className="bg-white lg:w-4/5 w-11/12 flex p-3 lg:p-4 rounded-full justify-between items-center z-10">
                 <div className="logo">
-                    <img src="assets/Frame 4.png" alt="logo" className='w-32' />
+                    {/* <img src="assets/Frame 4.png" alt="logo" className='w-32' /> */}
                 </div>
                 <div className="lg:flex hidden flex-grow justify-center">
                     {navItems.map((item, index) => (
