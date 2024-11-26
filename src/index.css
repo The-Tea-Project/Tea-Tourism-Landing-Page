@@ -1,0 +1,162 @@
+/* custom-gradients.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.custom-gradient-bg {
+  background: linear-gradient(0deg, #0A47F2 79.79%, #B5C9FF 122.34%),
+    radial-gradient(342.89% 359.97% at 49.74% 48.94%, rgba(10, 71, 242, 0.5) 0%, rgba(181, 201, 255, 0.5) 100%),
+    linear-gradient(0deg, #0A47F2, #0A47F2),
+    radial-gradient(50% 50% at 50% 50%, #D763FF 0%, rgba(10, 71, 242, 0) 100%)
+    /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */
+  ;
+  border: 6px solid;
+
+  border-image-source: linear-gradient(135deg, #D763FF 0%, #0A47F2 50%, #8A88FF 100%);
+
+  box-shadow: 5px 5px 12px 10px #8A88FF33;
+
+  box-shadow: -5px -5px 12px 0px #D763FF33;
+
+
+}
+
+
+@font-face {
+  font-family: 'Satoshi-Medium';
+  src: url('/fonts/Satoshi-Medium.woff2') format('woff2'),
+    url('/fonts/Satoshi-Medium.woff') format('woff'),
+    url('/fonts/Satoshi-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+
+
+
+@font-face {
+  font-family: 'Satoshi-Bold';
+  src: url('/fonts/Satoshi-Bold.woff2') format('woff2'),
+    url('/fonts/Satoshi-Bold.woff') format('woff'),
+    url('/fonts/Satoshi-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+body {
+  background-color: #F0F3F6;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    box-shadow: 0px 0px 25px 10px rgba(50, 119, 248, 0.15);
+  }
+
+  50% {
+    box-shadow: 0px 0px 30px 15px rgba(50, 119, 248, 0.25);
+  }
+}
+
+.pulse-animation {
+  animation: pulse 2s infinite;
+}
+
+
+/* .button {
+    background: linear-gradient(0deg, #0A47F2 79.79%, #B5C9FF 122.34%),
+                radial-gradient(342.89% 359.97% at 49.74% 48.94%, rgba(10, 71, 242, 0.5) 0%, rgba(181, 201, 255, 0.5) 100%);
+    box-shadow: 0px 0px 25px 10px #3277F826;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background: linear-gradient(0deg, #0A47F2 79.79%, #B5C9FF 122.34%),
+                radial-gradient(342.89% 359.97% at 49.74% 48.94%, rgba(10, 71, 242, 0.5) 0%, rgba(181, 201, 255, 0.5) 100%),
+                linear-gradient(0deg, #0A47F2, #0A47F2),
+                radial-gradient(50% 50% at 50% 50%, #D763FF 0%, rgba(10, 71, 242, 0) 100%);
+    /* border: 6px solid; */
+/* border-image-source: linear-gradient(135deg, #D763FF 0%, #0A47F2 50%, #8A88FF 100%);
+box-shadow: 5px 5px 12px 10px rgba(138, 136, 255, 0.2),
+-5px -5px 12px 0px rgba(215, 99, 255, 0.2);
+} */
+
+
+*/ .boxShadow {
+  transition: box-shadow 0.3s ease;
+}
+
+.boxShadow:hover {
+  box-shadow: "0px 0px 50px 10px #3277F826"
+}
+
+
+.button {
+  /* Property 1=Default */
+
+
+  background: radial-gradient(342.89% 359.97% at 49.74% 48.94%, rgba(10, 71, 242, 0.5) 0%, rgba(181, 201, 255, 0.5) 100%), linear-gradient(0deg, #0A47F2 79.79%, #B5C9FF 122.34%);
+  /* Colors/Blue/blue-500 */
+  border: 2px solid #0A47F2;
+  box-shadow: 0px 0px 25px 10px rgba(50, 119, 248, 0.15);
+  border-radius: 36px;
+
+  /* Colors/B&W/White */
+  color: #FFFFFF;
+
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  transition-duration: 200ms;
+
+
+}
+
+.button:hover {
+
+  background: radial-gradient(50% 50% at 50% 50%, #D763FF 0%, rgba(10, 71, 242, 0) 100%)
+    /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */
+    , linear-gradient(0deg, #0A47F2, #0A47F2), radial-gradient(342.89% 359.97% at 49.74% 48.94%, rgba(10, 71, 242, 0.5) 0%, rgba(181, 201, 255, 0.5) 100%), linear-gradient(0deg, #0A47F2 79.79%, #B5C9FF 122.34%);
+  box-shadow: -5px -5px 12px rgba(215, 99, 255, 0.2), 5px 5px 12px 10px rgba(138, 136, 255, 0.2);
+  border-radius: 36px;
+  /* Colors/B&W/White */
+  /* color: #FFFFFF; */
+
+  transition-duration: 200ms;
+
+
+}
+/* 
+.button:focus {
+  transition-duration: 200ms;
+
+  background: #001E72;
+  border-radius: 36px;
+  
+  /* identical to box height, or 27px */
+  
+  /* background: radial-gradient(115.71% 368.4% at 50% 50%, #D763FF 0%, rgba(10, 71, 242, 0) 100%), #FFFFFF; */
+  /* -webkit-background-clip: text; */
+  /* -webkit-text-fill-color: transparent; */
+  /* background-clip: text; */
+  /* text-fill-color: transparent; */
+  /* background: radial-gradient(50% 50% at 50% 50%, #D763FF 0%, rgba(10, 71, 242, 0) 100%), #FFFFFF; */
