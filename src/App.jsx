@@ -11,7 +11,7 @@ import NotFound from './pages/NotFound'
 import './index.css'
 import LocomotiveScroll from "locomotive-scroll";
 // import ScrollToTop from './components/ScrollToTop'
-
+import BlogPost from './blogs/BlogPost'
 export default function App() {
   const scroll = new LocomotiveScroll()
 
@@ -23,6 +23,8 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
         <Route path="/blogs" element={<Blogs />} />
+        <Route path="/blogs/:id" element={<BlogPost />} />
+
         <Route path="/courses" element={<Courses />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
