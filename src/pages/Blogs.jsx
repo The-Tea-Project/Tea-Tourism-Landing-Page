@@ -1,5 +1,5 @@
 import React from 'react'
-import BlogsHome from '../blogs/home'
+import BlogsHome from '../blogs/Home'
 import NavBar from '../components/NavBar'
 function Blogs() {
   return (
