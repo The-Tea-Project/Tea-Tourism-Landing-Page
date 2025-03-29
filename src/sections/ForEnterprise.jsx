@@ -147,7 +147,7 @@ function ForEnterprise() {
                         <div className="md:w-1/2 mb-8 md:mb-0 md:pr-10">
                             <div className="relative">
                                 <div className="absolute inset-0 bg-[var(--primary)] opacity-20 blur-xl rounded-lg transform -rotate-3"></div>
-                                <img src="/assets/tea-products.jpg" alt="Tea Certificate" className="relative rounded-lg shadow-lg object-cover h-64 w-full" />
+                                <img src="https://images.unsplash.com/photo-1571934811356-5cc061b6821f?q=80&w=2667&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Tea Certificate" className="relative rounded-lg shadow-lg object-cover h-64 w-full" />
                                 <div className="absolute top-4 left-4 bg-[var(--primary)] text-white text-xs font-bold py-1 px-3 rounded-full shadow-lg">
                                     CERTIFIED
                                 </div>

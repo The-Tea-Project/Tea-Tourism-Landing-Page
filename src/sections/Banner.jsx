@@ -12,7 +12,7 @@ function Banner() {
       description: "A comprehensive introduction to different tea varieties, their origins, and proper brewing techniques. Learn to identify flavors and aromas like a pro.",
       duration: "4 weeks",
       modules: "6 modules",
-      image: "/assets/course-masterclass.jpg",
+      image: "https://plus.unsplash.com/premium_photo-1661603403807-aa68bfcc983a?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       price: "$199",
       features: [
         "Hands-on brewing sessions",

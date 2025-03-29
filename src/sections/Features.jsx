@@ -9,21 +9,21 @@ function Features() {
             id: 1,
             title: "Tea & Beverages",
             description: "Discover premium, locally sourced teas from the region's finest estates.",
-            image: "/assets/tea-products.jpg",
+            image: "https://plus.unsplash.com/premium_photo-1732393280688-8e5858809c0c?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             details: "Our collection features single-estate teas, rare seasonal harvests, and signature blends exclusive to the regions you'll visit. Each tea is ethically sourced and packaged to preserve its exceptional flavor profile."
         },
         {
             id: 2,
             title: "Handicrafts & Art",
             description: "Explore unique handcrafted items created by skilled local artisans.",
-            image: "/assets/handicrafts.jpg",
+            image: "https://images.unsplash.com/photo-1734600891263-1d56b397c5af?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             details: "From intricately woven bamboo baskets to hand-painted tea accessories, these authentic crafts reflect generations of traditional techniques and cultural heritage from tea-growing communities."
         },
         {
             id: 3,
             title: "Culinary Delights",
             description: "Sample regional delicacies and tea-infused culinary creations.",
-            image: "/assets/culinary.jpg",
+            image: "https://plus.unsplash.com/premium_photo-1695297516740-6f9ceff51404?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             details: "Discover delicious tea-infused chocolates, cookies, and preserves made with local ingredients. Our culinary products showcase innovative ways to incorporate tea into everyday cooking and special treats."
         }
     ];
@@ -132,7 +132,7 @@ function Features() {
                 <div className="mt-24 text-center">
                     <h3 className="font-satoshi text-[24px] font-bold text-[var(--text-dark)] mb-4">Ready to explore our collection?</h3>
                     <p className="font-satoshiMed text-[16px] text-[var(--text-dark)]/80 max-w-xl mx-auto mb-6">
-                        Browse our full catalog featuring over 50 unique products from tea-growing regions around the world.
+                        Browse our full catalog featuring exquisitely crafted products from Assam , West Bengal and Sikkim.
                     </p>
                     <CTABtn text="Browse All Products" link="#products-catalog" />
                 </div>

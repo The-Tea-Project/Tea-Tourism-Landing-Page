@@ -9,19 +9,19 @@ function Hero() {
     const slides = [
         {
             id: 1,
-            image: "/assets/hero-slide-1.jpg",
+            image: "https://plus.unsplash.com/premium_photo-1692049123825-8d43174c9c5c?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             title: "Discover Tea Gardens",
             description: "Immerse yourself in lush tea estates and explore the art of tea cultivation"
         },
         {
             id: 2,
-            image: "/assets/hero-slide-2.jpg",
+            image: "https://images.unsplash.com/photo-1587834323138-befbf2c33797?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             title: "Experience Tea Culture",
             description: "Learn about traditional tea ceremonies and connect with local tea communities"
         },
         {
             id: 3,
-            image: "/assets/hero-slide-3.jpg",
+            image: "https://plus.unsplash.com/premium_photo-1731696604013-52ccf4c49bd9?q=80&w=2607&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             title: "Taste Authentic Flavors",
             description: "Sample the finest teas directly from their source and discover unique blends"
         }
