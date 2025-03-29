@@ -1,85 +1,109 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function Features() {
+    const [activeProduct, setActiveProduct] = useState(0);
+    
+    const products = [
+        {
+            id: 1,
+            title: "Tea & Beverages",
+            description: "Discover premium, locally sourced teas from the region's finest estates.",
+            image: "/assets/tea-products.jpg",
+            details: "Our collection features single-estate teas, rare seasonal harvests, and signature blends exclusive to the regions you'll visit. Each tea is ethically sourced and packaged to preserve its exceptional flavor profile."
+        },
+        {
+            id: 2,
+            title: "Handicrafts & Art",
+            description: "Explore unique handcrafted items created by skilled local artisans.",
+            image: "/assets/handicrafts.jpg",
+            details: "From intricately woven bamboo baskets to hand-painted tea accessories, these authentic crafts reflect generations of traditional techniques and cultural heritage from tea-growing communities."
+        },
+        {
+            id: 3,
+            title: "Culinary Delights",
+            description: "Sample regional delicacies and tea-infused culinary creations.",
+            image: "/assets/culinary.jpg",
+            details: "Discover delicious tea-infused chocolates, cookies, and preserves made with local ingredients. Our culinary products showcase innovative ways to incorporate tea into everyday cooking and special treats."
+        }
+    ];
+    
     return (
-        <>
-            <div id='features' className="w-full my-40 flex bg-[#F0F3F6] flex-col justify-center items-center py-16 text-center">
-                <img src="assets/Crown.png" alt="" srcset="" className='w-[48px]' />
-                <img src="assets/WithMF.png" alt="" srcset="" className='w-[322px] my-[24px]' />
-                <div className="lg:text-[20px] px-12 text-[14px] font-satoshiMed text-center">
-                    You can now easily translate any video content into multiple languages with just a few clicks. <br />No more struggling to understand foreign videos or spending hours on manual translations.
+        <div id="products" className="w-full bg-white py-[100px] relative overflow-hidden">
+            {/* Decorative elements */}
+            <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-[var(--cream)] opacity-20 blur-3xl"></div>
+            <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-[var(--cream)] opacity-30 blur-3xl"></div>
+            
+            <img src="/assets/tea-leaves-pattern.svg" alt="Tea Leaves" className="absolute left-0 top-40 w-48 opacity-10 hidden lg:block transform rotate-45" />
+            
+            <div className="container mx-auto px-4 relative z-10">
+                <div className="text-center mb-16 max-w-3xl mx-auto">
+                    <span className="inline-block py-1 px-3 rounded-full bg-[var(--primary-light)] bg-opacity-20 text-[var(--primary)] text-sm font-medium mb-4">LOCAL MARKETPLACE</span>
+                    <h2 className="font-satoshi text-[40px] lg:text-[56px] font-bold mb-6 text-[var(--text-dark)]">Authentic Products</h2>
+                    <div className="w-24 h-1 bg-[var(--primary)] mx-auto mb-6 rounded-full"></div>
+                    <p className="font-satoshiMed text-[18px] text-[var(--text-dark)] opacity-90">
+                        Discover and purchase unique products from the tea-growing regions, supporting local communities and taking home authentic mementos of your journey.
+                    </p>
                 </div>
-                <div className="flex flex-wrap lg:flex-nowrap lg:w-4/5 w-11/12 mt-[48px] space-y-6 lg:space-y-0">
-                    <div className="lg:w-[352px] w-full bg-white h-[622px] rounded-[32px] p-6">
-                        <div className="flex flex-col items-center justify-between h-full">
-                            <div className="text-[24px] font-bold text-center font-satoshi">
-                                Multiple Language Support
-                            </div>
-                            <img src="assets/multiLang.png" alt="" srcset="" className='w-full' />
-                            <div className="text-[18px] text-center p-6 font-satoshi">
-                                We support a variety of languages for broad accessibility.
-                            </div>
-                        </div>
-                    </div>
-                    <div className="grow  flex-wrap flex-col flex lg:ml-6">
-                        <div className="w-full  bg-white h-[299px] rounded-[32px]">
-                            <div className="flex justify-between flex-col items-center p-6 h-full">
 
-                                <div className="text-[24px] font-bold font-satoshi">
-                                    Easy Upload
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto relative">
+                    {products.map((product, index) => (
+                        <div 
+                            key={product.id} 
+                            className="relative"
+                            onMouseEnter={() => setActiveProduct(index)}
+                        >
+                            <div className={`tea-card bg-white overflow-hidden h-full shadow-lg transition-all duration-500 ${activeProduct === index ? 'transform -translate-y-2' : ''}`}>
+                                <div className="relative h-64 overflow-hidden">
+                                    <img 
+                                        src={product.image} 
+                                        alt={product.title} 
+                                        className="w-full h-full object-cover transition duration-700 hover:scale-110"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.7)] to-transparent"></div>
+                                    <div className="absolute bottom-6 left-6 right-6">
+                                        <h3 className="font-satoshi text-[24px] font-bold text-white">{product.title}</h3>
+                                        <p className="font-satoshiMed text-[16px] text-white/80 mt-2">
+                                            {product.description}
+                                        </p>
+                                    </div>
                                 </div>
-                                <img src="assets/EsyUpload.png" alt="" srcset="" className='w-60 max-w-[728px]' />
-                                <div className="text-[18px] font-satoshiMed">
-                                    Simple process of uploading content for translation.
+                                
+                                <div className="p-6">
+                                    <div className={`transition-all duration-500 ${activeProduct === index ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'} overflow-hidden`}>
+                                        <p className="font-satoshiMed text-[16px] text-[var(--text-dark)] mb-4">
+                                            {product.details}
+                                        </p>
+                                        <a href="#" className="text-[var(--primary)] font-satoshi font-bold hover:underline flex items-center group">
+                                            View Collection
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1 transform transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                            </svg>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="w-full  bg-white h-[299px] rounded-[32px] mt-6">
-                            <div className="flex flex-col items-center justify-between p-6 h-full">
-                                <div className="text-[24px] font-bold font-satoshi">
-                                    Voice Preservation
-                                </div>
-                                <img src="assets/wave.png" alt="" srcset="" className='w-full max-w-[728px]' />
-                                <div className="text-[18px] font-satoshiMed">
-                                    Maintains the original speaker's voice in the translation.
-                                </div>
+                            
+                            {/* Hover indicators */}
+                            <div className="flex justify-center mt-4">
+                                {products.map((_, i) => (
+                                    <div 
+                                        key={i} 
+                                        className={`w-2 h-2 rounded-full mx-1 ${
+                                            i === index 
+                                                ? activeProduct === index 
+                                                    ? 'bg-[var(--primary)]' 
+                                                    : 'bg-[var(--primary-light)]' 
+                                                : 'bg-[var(--primary-light)] bg-opacity-30'
+                                        }`}
+                                    />
+                                ))}
                             </div>
                         </div>
-                    </div>
-
-                </div>
-                <div className="flex lg:w-4/5 w-11/12 lg:flex-nowrap flex-wrap mt-[24px] space-y-6 lg:space-y-0">
-                    <div className="grow  bg-white h-[622px] rounded-[32px]">
-                        <div className="flex justify-between flex-col items-center p-0 h-full">
-
-                            <div className="text-[24px] font-bold font-satoshi p-6">
-                                On-Screen Text Translation
-                            </div>
-                            <img src="assets/OnScrrenText.png" alt="" srcset="" className='max-h-[435px]' />
-                            <div className="text-[18px] font-satoshiMed p-6">
-                                Translates any text on screen into the target language, ensuring consistency and accuracy.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className=" lg:w-[352px] w-full bg-white h-[622px] lg:ml-6 rounded-[32px]">
-                        <div className="flex justify-between flex-col items-center p-6 h-full">
-
-                            <div className="text-[24px] font-bold font-satoshi">
-                                Lip-Sync Technology
-                            </div>
-                            <img src="assets/sync.png" alt="" srcset="" className='w-[182px] max-w-[728px]' />
-                            <div className="text-[18px] font-satoshiMed">
-                                AI-driven lip-syncing to keep the translated speech in sync with the original video.
-                            </div>
-                        </div>
-                    </div>
-
-
+                    ))}
                 </div>
             </div>
-
-        </>)
+        </div>
+    )
 }
 
 export default Features

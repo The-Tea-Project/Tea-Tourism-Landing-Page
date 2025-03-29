@@ -2,27 +2,61 @@ import React from 'react'
 
 function ForEnterprise() {
     return (
-        <div className=' flex-col flex w-full items-center justify-center font-satoshi my-40'>
-            <div style={{
-                backgroundImage: `url('assets/bgGradient.png')`,
-                backgroundSize: 'cover', // Adjusts the image to cover the entire div
-                backgroundPosition: 'center', // Centers the background image
-                backgroundRepeat: 'no-repeat', // Prevents the image from repeating
-            }}
-                className="flex mx-3 lg:w-[1104px] h-[488px]  rounded-[32px] flex-col space-y-12 items-center justify-center">
-                {/* <img src="assets/bgGradient.png" alt="" srcset="" className='-z-10 absolute' /> */}
-
-                <div className="flex space-y-6 flex-col">
-
-                    <div className="text-6xl font-bold text-center text-white">MetaFrazo for Enterprise</div>
-                    <div className="text-[20px] px-3 font-medium font-satoshi text-white text-center">MetaFrazo for Enterprise provides you with 99% accurate translational model and up to 10 requests</div>
+        <div id="edtech" className="w-full bg-[var(--light-bg)] py-[80px] relative">
+            <div className="absolute inset-0 bg-[url('/assets/tea-pattern.svg')] opacity-5"></div>
+            <div className="container mx-auto px-4 relative z-10">
+                <div className="text-center mb-[48px]">
+                    <h2 className="font-satoshi text-[40px] lg:text-[48px] font-bold mb-4 text-[var(--text-dark)]">EdTech Stuff</h2>
+                    <p className="font-satoshiMed text-[18px] max-w-3xl mx-auto text-[var(--text-dark)]">
+                        We provide a range of engaging courses and training sessions that cover every aspect of tea farming, processing, and sustainable agriculture.
+                    </p>
                 </div>
-                <a href="https://dh4ftmjzfzn.typeform.com/to/XuzeNABu" target="_blank">
 
-                <div className="flex font-satoshi bg-white w-[144px] h-[51px] rounded-full items-center justify-center">
-                    Contact Us
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+                    {/* Course 1 */}
+                    <div className="tea-card bg-white">
+                        <div className="p-6">
+                            <h3 className="font-satoshi text-[24px] font-bold mb-3 text-[var(--primary)]">Tea Cultivation 101</h3>
+                            <p className="font-satoshiMed text-[16px] mb-4 text-[var(--text-dark)]">
+                                Get introduced to the fundamentals of tea farming—from preparing the soil and planting to adopting sustainable practices that align with modern smart farming.
+                            </p>
+                            <a href="#" className="text-[var(--primary)] font-satoshi font-bold hover:underline">Learn more →</a>
+                        </div>
+                    </div>
+
+                    {/* Course 2 */}
+                    <div className="tea-card bg-white">
+                        <div className="p-6">
+                            <h3 className="font-satoshi text-[24px] font-bold mb-3 text-[var(--primary)]">Processing & Production</h3>
+                            <p className="font-satoshiMed text-[16px] mb-4 text-[var(--text-dark)]">
+                                Dive into the craft of tea production, learning everything from leaf plucking to perfecting fermentation and drying techniques.
+                            </p>
+                            <a href="#" className="text-[var(--primary)] font-satoshi font-bold hover:underline">Learn more →</a>
+                        </div>
+                    </div>
+
+                    {/* Course 3 */}
+                    <div className="tea-card bg-white">
+                        <div className="p-6">
+                            <h3 className="font-satoshi text-[24px] font-bold mb-3 text-[var(--primary)]">Digital Innovations in Agriculture</h3>
+                            <p className="font-satoshiMed text-[16px] mb-4 text-[var(--text-dark)]">
+                                See how cutting-edge technology like real-time imagery and precision sensors is transforming tea production through virtual support.
+                            </p>
+                            <a href="#" className="text-[var(--primary)] font-satoshi font-bold hover:underline">Learn more →</a>
+                        </div>
+                    </div>
+
+                    {/* Course 4 */}
+                    <div className="tea-card bg-white">
+                        <div className="p-6">
+                            <h3 className="font-satoshi text-[24px] font-bold mb-3 text-[var(--primary)]">Cultural and Culinary Connections</h3>
+                            <p className="font-satoshiMed text-[16px] mb-4 text-[var(--text-dark)]">
+                                Experience local culinary delights and understand the broader impact of tea on local communities.
+                            </p>
+                            <a href="#" className="text-[var(--primary)] font-satoshi font-bold hover:underline">Learn more →</a>
+                        </div>
+                    </div>
                 </div>
-                </a>
             </div>
         </div>
     )

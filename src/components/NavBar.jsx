@@ -2,31 +2,26 @@ import React from 'react'
 
 function NavBar() {
     const navItems = [
-        { title: 'Products', href: '#products', className: "text-[#0A47F2] font-satoshi " },
-        { title: 'Features', href: '#features', className: "text-[#] font-satoshiMed " },
-        { title: 'Benefits', href: '#benefits', className: "text-[#] font-satoshiMed " },
-        // {title:'Pricing',href:'#',className:"text-[#] font-satoshiMed "},
-        { title: 'Contact Us', href: '#email', className: "text-[#] font-satoshiMed " },
-
+        { title: 'Home', href: '#home', className: "text-[var(--primary)] font-satoshi " },
+        { title: 'Why Choose Us', href: '#benefits', className: "text-[var(--text-dark)] font-satoshiMed hover:text-[var(--primary)] transition-colors" },
+        { title: 'Local Products', href: '#products', className: "text-[var(--text-dark)] font-satoshiMed hover:text-[var(--primary)] transition-colors" },
+        { title: 'Blogs', href: '#blogs', className: "text-[var(--text-dark)] font-satoshiMed hover:text-[var(--primary)] transition-colors" },
+        { title: 'Courses', href: '#edtech', className: "text-[var(--text-dark)] font-satoshiMed hover:text-[var(--primary)] transition-colors" },
     ]
     return (
         <>
-            <div className="bg-white lg:w-4/5 w-11/12 flex p-3 lg:p-4 rounded-full justify-between items-center z-10">
+            <div className="bg-white/90 backdrop-blur-sm lg:w-4/5 w-11/12 flex p-3 lg:p-4 rounded-full justify-between items-center z-10 shadow-md">
                 <div className="logo">
-                    <img src="assets/Frame 4.png" alt="logo" className='w-32' />
+                    <img src="/assets/tea-logo.png" alt="Tea Tourism Logo" className='w-32' />
                 </div>
                 <div className="lg:flex hidden flex-grow justify-center">
                     {navItems.map((item, index) => (
-                        <a key={index} href={item.href} className={item.className + " mx-4  text-sm font-medium"}>{item.title}</a>
+                        <a key={index} href={item.href} className={item.className + " mx-4 text-sm font-medium"}>{item.title}</a>
                     ))}
-
                 </div>
                 <div className="flex justify-center items-center">
-                    <a href="https://dh4ftmjzfzn.typeform.com/to/XuzeNABu" target="_blank">
-                        {/* <div className="lg:text-sm text-[12px] font-medium mx-2 font-satoshiMed">JOIN WAITLIST</div> */}
-                    </a>
-                    <a href="https://dh4ftmjzfzn.typeform.com/to/XuzeNABu" target="_blank">
-                        <div className="lg:text-sm text-[12px] whitespace-nowrap font-medium mx-2 font-satoshi bg-[#0A47F2] text-white px-[25px] py-[10px] rounded-full">Sign Up</div>
+                    <a href="#cta">
+                        <div className="lg:text-sm text-[12px] whitespace-nowrap font-medium mx-2 font-satoshi bg-[var(--primary)] text-white px-[25px] py-[10px] rounded-full hover:bg-[var(--primary-dark)] transition-colors">Explore Now</div>
                     </a>
                 </div>
             </div>
