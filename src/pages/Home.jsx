@@ -1,17 +1,21 @@
 import React from 'react'
 import Hero from '../sections/Hero'
-import Benefits from '../sections/Benefits'
-import Features from '../sections/Features'
+import MarketPlace from '../sections/MarketPlace'
+import Courses from '../sections/Courses'
 import CTA from '../sections/CTA'
 import ForEnterprise from '../sections/ForEnterprise'
 import Banner from '../sections/Banner'
+import Stay from '../sections/Stay'
+import Transport from '../sections/Transport'
 
 function Home() {
   return (
     <main>
       <Hero />
-      <Benefits />
-      <Features />
+      <MarketPlace />
+      <Stay/>
+      <Transport/>
+      <Courses />
       <Banner />
       <ForEnterprise />
       <CTA />
