@@ -46,10 +46,89 @@ function Hero() {
                 <div className="absolute top-[15%] left-[15%] w-16 h-16 rounded-full bg-[var(--primary)] opacity-10 blur-lg"></div>
                 
                 <div className="absolute top-40 right-20 hidden lg:block">
-                    <img src="/assets/tea-leaf.svg" alt="Tea Leaf" className="w-24 h-24 opacity-20 rotate-45" />
+                    {/* Custom Tea Leaf SVG - replaces the missing image */}
+                    <svg className="w-24 h-24 opacity-20 rotate-45" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        {/* Main leaf shape */}
+                        <path d="M50,10 C75,20 85,50 75,80 C65,95 40,95 30,80 C15,60 25,30 50,10 Z" 
+                              fill="var(--primary)" />
+                        
+                        {/* Leaf veins */}
+                        <path d="M50,10 C50,40 50,70 50,90" 
+                              stroke="var(--primary-dark)" strokeWidth="1" />
+                        <path d="M50,30 C60,40 60,50 50,60" 
+                              stroke="var(--primary-dark)" strokeWidth="1" />
+                        <path d="M50,30 C40,40 40,50 50,60" 
+                              stroke="var(--primary-dark)" strokeWidth="1" />
+                        <path d="M50,60 C60,70 60,80 50,90" 
+                              stroke="var(--primary-dark)" strokeWidth="1" />
+                        <path d="M50,60 C40,70 40,80 50,90" 
+                              stroke="var(--primary-dark)" strokeWidth="1" />
+                              
+                        {/* Leaf texture */}
+                        <path d="M37,30 C43,35 47,35 53,30" 
+                              stroke="var(--primary-dark)" strokeWidth="0.5" strokeLinecap="round" />
+                        <path d="M35,45 C43,50 47,50 55,45" 
+                              stroke="var(--primary-dark)" strokeWidth="0.5" strokeLinecap="round" />
+                        <path d="M33,60 C43,65 47,65 57,60" 
+                              stroke="var(--primary-dark)" strokeWidth="0.5" strokeLinecap="round" />
+                        <path d="M35,75 C43,80 47,80 55,75" 
+                              stroke="var(--primary-dark)" strokeWidth="0.5" strokeLinecap="round" />
+                    </svg>
                 </div>
                 <div className="absolute bottom-20 left-10 hidden lg:block">
-                    <img src="/assets/tea-cup.svg" alt="Tea Cup" className="w-20 h-20 opacity-15" />
+                    {/* Improved Custom Tea Cup SVG */}
+                    <svg className="w-20 h-20 opacity-15" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        {/* Improved saucer with gradient */}
+                        <ellipse cx="50" cy="82" rx="40" ry="8" fill="url(#saucerGradient)" />
+                        <ellipse cx="50" cy="81" rx="30" ry="4" fill="#FFFFFF" fillOpacity="0.2" />
+                        
+                        {/* Cup body with gradient */}
+                        <path d="M30 70C30 55 35 42 50 42C65 42 70 55 70 70" fill="url(#cupGradient)" />
+                        <path d="M30 70H70" stroke="var(--primary-dark)" strokeWidth="1" />
+                        
+                        {/* Cup rim with shine */}
+                        <ellipse cx="50" cy="42" rx="20" ry="5" fill="var(--primary-light)" />
+                        <ellipse cx="50" cy="42" rx="18" ry="4" fill="var(--primary)" />
+                        <path d="M35 40C40 38 45 37 50 37C55 37 60 38 65 40" stroke="#FFFFFF" strokeWidth="0.5" strokeOpacity="0.6" />
+                        
+                        {/* Tea liquid surface with ripple */}
+                        <ellipse cx="50" cy="48" rx="17" ry="3.5" fill="var(--primary-dark)" />
+                        <path d="M40 48C42 47 47 46 50 46C53 46 58 47 60 48" 
+                              stroke="#FFFFFF" strokeWidth="0.5" strokeOpacity="0.3" />
+                        
+                        {/* Handle with gradient */}
+                        <path d="M70 60C78 60 83 55 83 50C83 45 78 40 70 40" 
+                              stroke="var(--primary-dark)" strokeWidth="2" fill="none" />
+                        <path d="M70 58C76 58 80 54 80 50C80 46 76 42 70 42" 
+                              stroke="var(--primary-light)" strokeWidth="0.5" fill="none" />
+                        
+                        {/* Tea leaves in cup */}
+                        <path d="M45 54C46 51 49 52 50 54C51 56 48 58 45 54Z" fill="var(--primary-dark)" />
+                        <path d="M53 56C55 54 58 55 58 57C58 59 55 60 53 56Z" fill="var(--primary-dark)" />
+                        
+                        {/* Steam with animation */}
+                        <path d="M40 38C40 33 35 30 40 25" 
+                              stroke="#FFFFFF" strokeWidth="1" strokeOpacity="0.6" strokeLinecap="round" 
+                              strokeDasharray="1,2" className="animate-pulse" />
+                        <path d="M50 38C50 28 45 25 50 20" 
+                              stroke="#FFFFFF" strokeWidth="1" strokeOpacity="0.6" strokeLinecap="round" 
+                              strokeDasharray="1,2" className="animate-pulse delay-150" />
+                        <path d="M60 38C60 33 65 30 60 25" 
+                              stroke="#FFFFFF" strokeWidth="1" strokeOpacity="0.6" strokeLinecap="round" 
+                              strokeDasharray="1,2" className="animate-pulse delay-300" />
+                              
+                        {/* Definitions for gradients */}
+                        <defs>
+                            <linearGradient id="cupGradient" x1="30" y1="42" x2="70" y2="70" gradientUnits="userSpaceOnUse">
+                                <stop offset="0" stopColor="var(--primary)" />
+                                <stop offset="1" stopColor="var(--primary-dark)" />
+                            </linearGradient>
+                            <linearGradient id="saucerGradient" x1="20" y1="80" x2="80" y2="85" gradientUnits="userSpaceOnUse">
+                                <stop offset="0" stopColor="var(--primary-light)" />
+                                <stop offset="1" stopColor="var(--primary)" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
                 </div>
 
                 <div className="text-center self-center justify-self-center my-auto z-10 w-full max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 px-4 items-center">

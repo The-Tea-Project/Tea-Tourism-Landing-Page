@@ -592,7 +592,7 @@ function Transport() {
                     <div className="max-w-5xl mx-auto relative">
                         <div className="flex flex-col md:flex-row items-center">
                             <div className="md:w-1/2 md:pr-12 mb-8 md:mb-0 relative z-10">
-                                <div className="hidden md:block absolute -top-10 -left-10 w-20 h-20 rounded-full border-4 border-[var(--primary-light)] border-opacity-30"></div>
+                                {/* <div className="hidden md:block absolute -top-10 -left-10 w-20 h-20 rounded-full border-4 border-[var(--primary-light)] border-opacity-30"></div> */}
                                 <h3 className="font-satoshi text-[32px] font-bold text-[var(--text-dark)] mb-4">Need Custom Transportation?</h3>
                                 <p className="font-satoshiMed text-[16px] text-[var(--text-dark)]/80 mb-6">
                                     We can arrange specialized transportation and create custom itineraries for groups or specific requirements. Our transportation team will work with you to design the perfect travel solution.

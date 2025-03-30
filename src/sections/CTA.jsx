@@ -88,7 +88,7 @@ function CTA() {
                                 </p>
                                 <div className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
                                     {/* High contrast button to stand out from background */}
-                                    <div className="w-full sm:w-auto">
+                                    <div className="w-full sm:w-auto ">
                                         <CTABtn text="EXPLORE NOW" customClass="bg-[var(--cream)] hover:bg-white text-[var(--primary-dark)] border-0 font-bold shadow-lg" />
                                     </div>
                                     <a href="#courses" className="flex items-center text-white/90 font-satoshi font-bold group hover:text-white transition-colors">

@@ -75,11 +75,11 @@ function ForEnterprise() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
                     {courses.map((course, index) => (
-                        <div key={course.id} className="relative group">
+                        <div key={course.id} className="relative group ">
                             <div className="absolute inset-0 bg-gradient-to-r from-[var(--primary-light)] to-[var(--primary)] opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300"></div>
                             
                             <div className="tea-card bg-white rounded-2xl overflow-hidden shadow-lg group-hover:shadow-xl transition-all duration-300 border border-gray-100">
-                                <div className="flex h-full">
+                                <div className="flex h-64">
                                     {/* Course icon column */}
                                     <div className="w-1/4 bg-gradient-to-b bg-opacity-90 flex flex-col items-center pt-8 relative overflow-hidden">
                                         <div className={`w-16 h-16 rounded-full bg-gradient-to-r ${course.color} flex items-center justify-center shadow-lg`}>
