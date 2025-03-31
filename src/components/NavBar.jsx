@@ -7,7 +7,7 @@ function NavBar() {
         { title: 'Local Products', href: '/products', className: "text-[var(--text-dark)] font-satoshiMed hover:text-[var(--primary)] transition-colors" },
         { title: 'Stays', href: '/stays', className: "text-[var(--text-dark)] font-satoshiMed hover:text-[var(--primary)] transition-colors" },
         { title: 'Blogs', href: '/blogs', className: "text-[var(--text-dark)] font-satoshiMed hover:text-[var(--primary)] transition-colors" },
-        { title: 'Courses', href: '#edtech', className: "text-[var(--text-dark)] font-satoshiMed hover:text-[var(--primary)] transition-colors" },
+        { title: 'Transport', href: '/transport', className: "text-[var(--text-dark)] font-satoshiMed hover:text-[var(--primary)] transition-colors" },
     ]
     return (
         <>

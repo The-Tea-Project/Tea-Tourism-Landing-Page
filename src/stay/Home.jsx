@@ -47,7 +47,7 @@ function StayHome() {
     return (
         // <div className="flex bg-[var(--cream)] flex-col items-center justify-center w-full">
             // {/* <NavBar /> */}
-            <div className="w-full bg-[var(--light-bg)] to-[#f7f9fc] py-[100px] relative overflow-hidden">
+            <div className="w-full  py-[100px] relative overflow-hidden">
                 {/* Architectural decorative elements */}
                 <svg className="absolute top-0 left-0 w-full h-96 opacity-15" viewBox="0 0 1440 320" preserveAspectRatio="none">
                     <path d="M0,224L48,208C96,192,192,160,288,165.3C384,171,480,213,576,224C672,235,768,213,864,192C960,171,1056,149,1152,149.3C1248,149,1344,171,1392,181.3L1440,192L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z" 

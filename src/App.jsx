@@ -15,6 +15,8 @@ import BlogPost from './blogs/BlogPost'
 import Product from './products/Product'
 import Stay from './pages/Stay'
 import Room from './stay/Room'
+import Transport from './pages/Transport'
+import TransportPage from './transport/TransportPage'
 export default function App() {
   const scroll = new LocomotiveScroll()
 
@@ -31,6 +33,8 @@ export default function App() {
         <Route path="/products/:id" element={<Product />} />
         <Route path="/stays" element={<Stay />} />
         <Route path="/stays/:id" element={<Room />} />
+        <Route path="/transport" element={<Transport />} />
+        <Route path="/transport/:id" element={<TransportPage />} />
         <Route path="/courses" element={<Courses />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
