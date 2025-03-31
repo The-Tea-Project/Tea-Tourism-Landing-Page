@@ -2,10 +2,11 @@ import React from 'react'
 
 function NavBar() {
     const navItems = [
-        { title: 'Home', href: '#home', className: "text-[var(--primary)] font-satoshi " },
+        { title: 'Home', href: '/', className: "text-[var(--primary)] font-satoshi " },
         { title: 'Why Us', href: '#benefits', className: "text-[var(--text-dark)] font-satoshiMed hover:text-[var(--primary)] transition-colors" },
-        { title: 'Local Products', href: '#products', className: "text-[var(--text-dark)] font-satoshiMed hover:text-[var(--primary)] transition-colors" },
-        { title: 'Blogs', href: '#blogs', className: "text-[var(--text-dark)] font-satoshiMed hover:text-[var(--primary)] transition-colors" },
+        { title: 'Local Products', href: '/products', className: "text-[var(--text-dark)] font-satoshiMed hover:text-[var(--primary)] transition-colors" },
+        { title: 'Stay', href: '/stay', className: "text-[var(--text-dark)] font-satoshiMed hover:text-[var(--primary)] transition-colors" },
+        { title: 'Blogs', href: '/blogs', className: "text-[var(--text-dark)] font-satoshiMed hover:text-[var(--primary)] transition-colors" },
         { title: 'Courses', href: '#edtech', className: "text-[var(--text-dark)] font-satoshiMed hover:text-[var(--primary)] transition-colors" },
     ]
     return (
