@@ -154,7 +154,7 @@ function ProductsHome() {
                                     />
                                     {product.discountPrice && (
                                         <div className="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-satoshiMed">
-                                            Save ${(product.price - product.discountPrice).toFixed(2)}
+                                            Save ₹{(product.price - product.discountPrice).toFixed(2)}
                                         </div>
                                     )}
                                 </div>
@@ -180,15 +180,15 @@ function ProductsHome() {
                                             {product.discountPrice ? (
                                                 <>
                                                     <span className="text-2xl font-satoshi font-bold text-[var(--primary)]">
-                                                        ${product.discountPrice.toFixed(2)}
+                                                        ₹{product.discountPrice.toFixed(2)}
                                                     </span>
                                                     <span className="text-gray-400 line-through">
-                                                        ${product.price.toFixed(2)}
+                                                        ₹{product.price.toFixed(2)}
                                                     </span>
                                                 </>
                                             ) : (
                                                 <span className="text-2xl font-satoshi font-bold text-[var(--primary)]">
-                                                    ${product.price.toFixed(2)}
+                                                    ₹{product.price.toFixed(2)}
                                                 </span>
                                             )}
                                         </div>

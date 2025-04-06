@@ -167,15 +167,15 @@ function Product() {
                                     {product.discountPrice ? (
                                         <>
                                             <span className="text-3xl font-satoshi font-bold text-[var(--primary)]">
-                                                ${product.discountPrice.toFixed(2)}
+                                            ₹{product.discountPrice.toFixed(2)}
                                             </span>
                                             <span className="text-xl text-gray-400 line-through">
-                                                ${product.price.toFixed(2)}
+                                            ₹{product.price.toFixed(2)}
                                             </span>
                                         </>
                                     ) : (
                                         <span className="text-3xl font-satoshi font-bold text-[var(--primary)]">
-                                            ${product.price.toFixed(2)}
+                                            ₹{product.price.toFixed(2)}
                                         </span>
                                     )}
                                 </div>

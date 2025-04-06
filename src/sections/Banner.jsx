@@ -13,7 +13,7 @@ function Banner() {
       duration: "4 weeks",
       modules: "6 modules",
       image: "https://plus.unsplash.com/premium_photo-1661603403807-aa68bfcc983a?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      price: "$199",
+      price: "₹199",
       features: [
         "Hands-on brewing sessions",
         "Tea origin exploration",
@@ -30,7 +30,7 @@ function Banner() {
       duration: "8 weeks",
       modules: "12 modules",
       image: "/assets/course-management.jpg",
-      price: "$349",
+      price: "₹349",
       features: [
         "Soil assessment methods",
         "Organic farming practices",
@@ -47,7 +47,7 @@ function Banner() {
       duration: "6 weeks",
       modules: "8 modules",
       image: "/assets/course-tourism.jpg",
-      price: "$249",
+      price: "₹249",
       features: [
         "Guest experience mapping",
         "Tour design principles",

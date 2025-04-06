@@ -170,7 +170,7 @@ function TransportHome() {
                                                 <div className="flex flex-wrap gap-2">
                                                     {transport.services.map((service, index) => (
                                                         <span key={index} className="bg-[var(--primary-light)] bg-opacity-20 text-[var(--primary)] text-xs px-3 py-1.5 rounded-full">
-                                                            {service.name} - ₹{service.price.min}-{service.price.max}
+                                                            {service.name}
                                                         </span>
                                                     ))}
                                                 </div>
