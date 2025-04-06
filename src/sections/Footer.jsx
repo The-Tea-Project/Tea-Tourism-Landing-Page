@@ -41,23 +41,24 @@ function Footer() {
                         <h3 className="text-xl font-satoshi font-bold mb-2 text-white">Quick Links</h3>
                         <a href="#home" className="text-[14px] text-white/90 hover:text-white hover:underline transition-colors">Home</a>
                         <a href="#benefits" className="text-[14px] text-white/90 hover:text-white hover:underline transition-colors">Why Choose Us</a>
-                        <a href="#products" className="text-[14px] text-white/90 hover:text-white hover:underline transition-colors">Local Products</a>
-                        <a href="#blogs" className="text-[14px] text-white/90 hover:text-white hover:underline transition-colors">Blogs</a>
+                        <a href="/products" className="text-[14px] text-white/90 hover:text-white hover:underline transition-colors">Local Products</a>
+                        <a href="/blogs" className="text-[14px] text-white/90 hover:text-white hover:underline transition-colors">Blogs</a>
                         <a href="#edtech" className="text-[14px] text-white/90 hover:text-white hover:underline transition-colors">Courses</a>
+                        
                     </div>
 
                     {/* Column 3 - Contact Info */}
                     <div className="flex flex-col space-y-4">
                         <h3 className="text-xl font-satoshi font-bold mb-2 text-white">Contact Us</h3>
-                        <p className="text-[14px] text-white/90">Email: info@teatourism.com</p>
-                        <p className="text-[14px] text-white/90">Phone: +1 (555) 123-4567</p>
+                        <p className="text-[14px] text-white/90">Email: info@teatourism.in</p>
+                        <p className="text-[14px] text-white/90">Phone: +91 9876543210</p>
                         <p className="text-[14px] text-white/90">Address: Tea Gardens, Darjeeling, India</p>
                     </div>
                 </div>
             </div>
             
             <div className="w-full py-6 text-[14px] text-center font-satoshiMed border-t border-white/20 text-white/90">
-                Copyright © 2024 Tea Tourism. All rights reserved.
+                Copyright © 2025 Tea Tourism. All rights reserved.
             </div>
         </div>
     )
