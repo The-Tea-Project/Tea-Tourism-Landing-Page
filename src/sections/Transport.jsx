@@ -17,7 +17,7 @@ function Transport() {
             rating: 4.9,
             reviewCount: 214,
             description: "Journey on the UNESCO World Heritage Darjeeling Himalayan Railway, enjoying breathtaking views of tea gardens.",
-            image: "https://images.unsplash.com/photo-1598002490557-4581f34547c7?q=80&w=2670&auto=format&fit=crop",
+            image: "https://images.unsplash.com/photo-1651608020599-12b17b8c0a26?q=80&w=2942&auto=format&fit=crop",
             features: [
                 "2-4 hour scenic journey through tea plantations",
                 "Original steam locomotives on select routes",
@@ -89,7 +89,7 @@ function Transport() {
             rating: 4.9,
             reviewCount: 42,
             description: "Breathtaking aerial views of sprawling tea estates, mountains, and rivers from a private helicopter.",
-            image: "https://images.unsplash.com/photo-1534331262957-b79e1e1d850a?q=80&w=2670&auto=format&fit=crop",
+            image: "https://images.unsplash.com/photo-1575830401034-3c4964fec7f1?q=80&w=2940&auto=format&fit=crop",
             features: [
                 "30-60 minute flights",
                 "Maximum 4-6 passengers",

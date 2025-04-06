@@ -53,7 +53,7 @@ function Stay() {
             reviewCount: 156,
             description: "Authentic family homestay within a working tea plantation, offering immersive cultural experiences.",
             location: "Munnar, Kerala",
-            image: "https://images.unsplash.com/photo-1632467124642-97a8f3a05d0f?q=80&w=2670&auto=format&fit=crop",
+            image: "https://images.unsplash.com/photo-1587578171396-20a367c5ad0b?q=80&w=3174&auto=format&fit=crop",
             amenities: ["Home-cooked Meals", "Tea Garden Views", "Cultural Activities", "Guided Hikes", "Wi-Fi"],
             features: [
                 "Run by a third-generation tea planter family",
@@ -89,7 +89,7 @@ function Stay() {
             reviewCount: 72,
             description: "Sustainable wooden cabins set within a pristine forest adjacent to organic tea plantations.",
             location: "Temi, Sikkim",
-            image: "https://images.unsplash.com/photo-1551355738-1875a8f35f0f?q=80&w=2670&auto=format&fit=crop",
+            image: "https://plus.unsplash.com/premium_photo-1686090450574-214118216bdc?q=80&w=3087&auto=format&fit=crop",
             amenities: ["Forest View", "Organic Meals", "Meditation Space", "Hiking Trails", "Limited Wi-Fi"],
             features: [
                 "Off-grid experience with solar power",
