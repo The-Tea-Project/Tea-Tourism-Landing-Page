@@ -14,6 +14,7 @@ import Stay from './pages/Stay'
 import Room from './stay/Room'
 import Transport from './pages/Transport'
 import TransportPage from './transport/TransportPage'
+import CourseDetail from './courses/CourseDetail'
 export default function App() {
 
   return (
@@ -32,6 +33,7 @@ export default function App() {
         <Route path="/transport" element={<Transport />} />
         <Route path="/transport/:id" element={<TransportPage />} />
         <Route path="/courses" element={<Courses />} />
+        <Route path="/courses/:level/:courseName" element={<CourseDetail />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />

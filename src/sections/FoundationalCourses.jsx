@@ -1,7 +1,42 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function FoundationalCourses() {
   const [activeTab, setActiveTab] = useState("beginner");
+
+  // Course PDF filenames mapping
+  const coursePDFs = {
+    "basic_literacy": "basic_literacy_course_content.pdf",
+    "fundamental_numeracy": "fundamental_numeracy_course_content.pdf",
+    "health_&_hygiene": "health_hygiene_course_content.pdf",
+    "advanced_literacy": "advanced_literacy_course_content.pdf",
+    "financial_literacy": "financial_literacy_course_content.pdf",
+    "vocational_skills": "vocational_skills_course_content.pdf",
+    "business_fundamentals": "business_fundamentals_course_content.pdf",
+    "community_leadership": "community_leadership_course_content.pdf",
+    "agricultural_sciences": "agricultural_sciences_course_content.pdf"
+  };
+
+  // Function to handle file download
+  const handleDownload = (courseTitle) => {
+    const formattedTitle = courseTitle.toLowerCase().replace(/\s+/g, '_');
+    const filename = coursePDFs[formattedTitle] || `${formattedTitle}_course_content.pdf`;
+    const filePath = `/courses/pdf/${filename}`;
+    
+    // Create a temporary anchor element
+    const link = document.createElement('a');
+    link.href = filePath;
+    link.setAttribute('download', filename);
+    
+    // Append to the document body
+    document.body.appendChild(link);
+    
+    // Trigger the click event
+    link.click();
+    
+    // Clean up
+    document.body.removeChild(link);
+  };
 
   const beginnerCourses = [
     {
@@ -68,7 +103,7 @@ function FoundationalCourses() {
       id: 4,
       title: "Advanced Literacy",
       type: "Intermediate",
-      priceRange: "₹500",
+      priceRange: "Free",
       rating: 4.6,
       reviewCount: 189,
       description:
@@ -87,7 +122,7 @@ function FoundationalCourses() {
       id: 5,
       title: "Financial Literacy",
       type: "Intermediate",
-      priceRange: "₹800",
+      priceRange: "Free",
       rating: 4.8,
       reviewCount: 203,
       description:
@@ -106,7 +141,7 @@ function FoundationalCourses() {
       id: 6,
       title: "Vocational Skills",
       type: "Intermediate",
-      priceRange: "₹1000",
+      priceRange: "Free",
       rating: 4.7,
       reviewCount: 156,
       description:
@@ -128,7 +163,7 @@ function FoundationalCourses() {
       id: 7,
       title: "Business Fundamentals",
       type: "Advanced",
-      priceRange: "₹1500",
+      priceRange: "Free",
       rating: 4.9,
       reviewCount: 98,
       description:
@@ -147,7 +182,7 @@ function FoundationalCourses() {
       id: 8,
       title: "Community Leadership",
       type: "Advanced",
-      priceRange: "₹2000",
+      priceRange: "Free",
       rating: 4.8,
       reviewCount: 76,
       description:
@@ -166,7 +201,7 @@ function FoundationalCourses() {
       id: 9,
       title: "Agricultural Sciences",
       type: "Advanced",
-      priceRange: "₹2500",
+      priceRange: "Free",
       rating: 4.7,
       reviewCount: 64,
       description:
@@ -369,26 +404,26 @@ function FoundationalCourses() {
                   </div>
 
                   {/* CTA button */}
-                  <a
-                    href="#enroll"
+                  <button
+                    onClick={() => handleDownload(course.title)}
                     className="inline-flex items-center justify-center w-full px-4 py-2.5 rounded-full border-2 border-[var(--primary)] text-[var(--primary)] font-satoshi font-bold hover:bg-[var(--primary)] hover:text-white transition-colors group"
                   >
-                    Enroll Now
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-4 w-4 ml-2 transition-transform duration-300 group-hover:translate-x-1"
-                      fill="none"
-                      viewBox="0 0 24 24"
+                    Download Course Content
+                    <svg 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      className="h-4 w-4 ml-2 transition-transform duration-300 group-hover:translate-y-1"
+                      fill="none" 
+                      viewBox="0 0 24 24" 
                       stroke="currentColor"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                      <path 
+                        strokeLinecap="round" 
+                        strokeLinejoin="round" 
+                        strokeWidth={2} 
+                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" 
                       />
                     </svg>
-                  </a>
+                  </button>
                 </div>
               </div>
             ))}
