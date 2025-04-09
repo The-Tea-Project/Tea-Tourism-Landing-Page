@@ -139,7 +139,7 @@ function Banner() {
                     {courses[activeTab].description}
                   </p>
                   
-                  <h4 className="font-satoshi text-xl font-bold text-[var(--text-dark)] mb-4">What You'll Learn</h4>
+                  <h4 className="font-satoshi text-xl font-bold text-[var(--text-dark)] mb-4">What You&apos;ll Learn</h4>
                   <ul className="space-y-3">
                     {courses[activeTab].features.map((feature, index) => (
                       <li key={index} className="flex items-start">

@@ -10,7 +10,7 @@ function Courses() {
             title: "Tea & Beverages",
             description: "Discover premium, locally sourced teas from the region's finest estates.",
             image: "https://plus.unsplash.com/premium_photo-1732393280688-8e5858809c0c?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-            details: "Our collection features single-estate teas, rare seasonal harvests, and signature blends exclusive to the regions you'll visit. Each tea is ethically sourced and packaged to preserve its exceptional flavor profile."
+            details: "Our collection features single-estate teas, rare seasonal harvests, and signature blends exclusive to the regions You&apos;ll visit. Each tea is ethically sourced and packaged to preserve its exceptional flavor profile."
         },
         {
             id: 2,

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import { useState, useRef } from 'react'
 import CTABtn from '../components/CTABtn'
 
 function Transport() {
@@ -610,7 +610,7 @@ function Transport() {
                                     </h4>
 
                                     <blockquote className="border-l-4 border-[var(--primary-light)] pl-4 mb-6">
-                                        <p className="italic text-gray-600 text-sm mb-2">"The custom tea trail journey arranged for our family was perfect. The transportation was comfortable and the local drivers knew exactly where to take us for the best views and experiences."</p>
+                                        <p className="italic text-gray-600 text-sm mb-2">&quot;The custom tea trail journey arranged for our family was perfect. The transportation was comfortable and the local drivers knew exactly where to take us for the best views and experiences.&quot;</p>
                                         <footer className="text-[var(--text-dark)] font-medium text-xs">— Sarah T., Tea Enthusiast</footer>
                                     </blockquote>
 

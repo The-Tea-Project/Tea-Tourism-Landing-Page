@@ -1,5 +1,4 @@
 import { Routes, Route } from 'react-router-dom'
-import NavBar from './components/NavBar'
 import Footer from './sections/Footer'
 import Home from './pages/Home'
 import Products from './pages/Products'
@@ -9,8 +8,6 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
 import './index.css'
-import LocomotiveScroll from "locomotive-scroll";
-// import ScrollToTop from './components/ScrollToTop'
 import BlogPost from './blogs/BlogPost'
 import Product from './products/Product'
 import Stay from './pages/Stay'
@@ -18,7 +15,6 @@ import Room from './stay/Room'
 import Transport from './pages/Transport'
 import TransportPage from './transport/TransportPage'
 export default function App() {
-  const scroll = new LocomotiveScroll()
 
   return (
     <div className="app">
