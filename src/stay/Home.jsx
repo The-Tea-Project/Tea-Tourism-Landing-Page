@@ -16,24 +16,18 @@ function StayHome() {
         const fetchHotels = async () => {
             setIsLoading(true);
             try {
-                const response = await fetch('https://tea-tourism-backend.onrender.com/stays/accommodations');
-                if (!response.ok) {
+                const response = await fetch('https://theteaprojbackend.vercel.app/api/accomodations');
+                if (!response) {
                     throw new Error('Failed to fetch accommodations');
                 }
                 const data = await response.json();
                 
                 // Process the accommodations data
-                const processedHotels = data.accommodations.map(hotel => ({
-                    ...hotel,
-                    image: hotel.mainImage?.includes('example.com') 
-                        ? `https://source.unsplash.com/featured/?hotel,${hotel.tags[0]}`
-                        : hotel.mainImage,
-                    // Get minimum price from roomTypes
-                    pricePerNight: Math.min(...hotel.roomTypes.map(room => room.priceRange.min))
-                }));
+                const processedHotels = data;
                 
                 setHotels(processedHotels);
                 setIsLoading(false);
+                console.log('Fetched hotels:', processedHotels);
             } catch (err) {
                 console.error('Error fetching accommodations:', err);
                 setError(err.message);

@@ -1,125 +1,54 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import CTABtn from '../components/CTABtn'
 
 function Stay() {
+    const [accommodations, setAccommodations] = useState([]);
     const [activeFilter, setActiveFilter] = useState('All');
     const [activeAccommodation, setActiveAccommodation] = useState(null);
-    
-    const filters = ['All', 'Homestays', 'Eco Lodges', 'Heritage', 'Luxury'];
-    
-    const accommodations = [
-        {
-            id: 1,
-            title: "Darjeeling Heritage Cottage",
-            type: "Heritage",
-            priceRange: "₹2000-₹6200 per night",
-            rating: 4.8,
-            reviewCount: 124,
-            description: "Experience colonial charm in this restored tea planter's bungalow with panoramic Himalayan views.",
-            location: "Darjeeling, West Bengal",
-            image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=2400&auto=format&fit=crop",
-            amenities: ["Mountain Views", "Organic Breakfast", "Tea Tasting", "Garden", "Wi-Fi"],
-            features: [
-                "Surrounded by working tea gardens",
-                "Original colonial architecture with modern comforts",
-                "Daily tea ceremony with estate-grown varieties",
-                "Guided tea garden walks available"
-            ]
-        },
-        {
-            id: 2,
-            title: "Assam Riverside Eco Lodge",
-            type: "Eco Lodges",
-            priceRange: "₹6000-₹1200 per night",
-            rating: 4.6,
-            reviewCount: 98,
-            description: "Sustainable bamboo cottages nestled along the Brahmaputra river, offering authentic Assamese hospitality.",
-            location: "Jorhat, Assam",
-            image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=2580&auto=format&fit=crop",
-            amenities: ["River View", "Organic Food", "Bicycle Rental", "Cultural Programs", "Wi-Fi"],
-            features: [
-                "Built using sustainable materials and practices",
-                "Farm-to-table dining featuring local Assamese cuisine",
-                "Tea plantation tours and tea-making workshops",
-                "River cruises and birdwatching available"
-            ]
-        },
-        {
-            id: 3,
-            title: "Munnar Valley Homestay",
-            type: "Homestays",
-            priceRange: "₹3000-₹7500 per night",
-            rating: 4.9,
-            reviewCount: 156,
-            description: "Authentic family homestay within a working tea plantation, offering immersive cultural experiences.",
-            location: "Munnar, Kerala",
-            image: "https://images.unsplash.com/photo-1587578171396-20a367c5ad0b?q=80&w=3174&auto=format&fit=crop",
-            amenities: ["Home-cooked Meals", "Tea Garden Views", "Cultural Activities", "Guided Hikes", "Wi-Fi"],
-            features: [
-                "Run by a third-generation tea planter family",
-                "Home-cooked Kerala cuisine using garden-fresh ingredients",
-                "Participate in tea plucking and processing",
-                "Learn traditional cooking and tea preparation"
-            ]
-        },
-        {
-            id: 4,
-            title: "Himalayan Tea Retreat",
-            type: "Luxury",
-            priceRange: "₹1500-₹8000 per night",
-            rating: 4.7,
-            reviewCount: 87,
-            description: "Exclusive luxury resort with private tea garden views, infinity pool, and premium tea experiences.",
-            location: "Kurseong, West Bengal",
-            image: "https://images.unsplash.com/photo-1455587734955-081b22074882?q=80&w=2670&auto=format&fit=crop",
-            amenities: ["Infinity Pool", "Spa", "Gourmet Dining", "Private Balconies", "High-speed Wi-Fi"],
-            features: [
-                "Butler service and personalized tea menu",
-                "Multi-course tea-inspired tasting menus",
-                "Luxury spa with tea-infused treatments",
-                "Private tea tasting with master blenders"
-            ]
-        },
-        {
-            id: 5,
-            title: "Sikkim Forest Cabins",
-            type: "Eco Lodges",
-            priceRange: "₹5500-₹10000 per night",
-            rating: 4.5,
-            reviewCount: 72,
-            description: "Sustainable wooden cabins set within a pristine forest adjacent to organic tea plantations.",
-            location: "Temi, Sikkim",
-            image: "https://plus.unsplash.com/premium_photo-1686090450574-214118216bdc?q=80&w=3087&auto=format&fit=crop",
-            amenities: ["Forest View", "Organic Meals", "Meditation Space", "Hiking Trails", "Limited Wi-Fi"],
-            features: [
-                "Off-grid experience with solar power",
-                "Farm-to-table dining with foraged ingredients",
-                "Temi tea garden tours and tastings",
-                "Forest bathing and nature therapy"
-            ]
-        },
-        {
-            id: 6,
-            title: "Colonial Tea Estate Manor",
-            type: "Heritage",
-            priceRange: "₹8000-₹15000 per night",
-            rating: 4.8,
-            reviewCount: 103,
-            description: "Elegant century-old manor house situated in a working tea estate with period furnishings and wraparound verandas.",
-            location: "Wayanad, Kerala",
-            image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2670&auto=format&fit=crop",
-            amenities: ["Estate Views", "Library", "Garden Dining", "Billiards Room", "Wi-Fi"],
-            features: [
-                "Historically preserved tea planter's residence",
-                "Afternoon high tea with estate-grown varieties",
-                "Museum room showcasing tea production history",
-                "Guided historical tours of the estate"
-            ]
-        }
-    ];
-    
-    const filteredAccommodations = activeFilter === 'All' 
-        ? accommodations 
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    // Filters based on API categories
+    const filters = ['All', 'Homestays', 'Eco Lodges', 'Heritage', 'Luxury', 'SAD'];
+
+    useEffect(() => {
+        const fetchAccommodations = async () => {
+            setLoading(true);
+            try {
+                const response = await fetch('https://theteaprojbackend.vercel.app/api/accomodations');
+                if (!response) throw new Error('Failed to fetch accommodations');
+
+                const data = await response.json();
+                console.log('Fetched accommodations:', data);
+                // Map API fields to UI fields
+                const mapped = data.map(acc => ({
+                    id: acc._id,
+                    title: acc.title,
+                    type: acc.category,
+                    priceRange: acc.priceRange,
+                    rating: acc.rating,
+                    reviewCount: acc.reviews,
+                    description: acc.description,
+                    location: acc.location,
+                    image: acc.imageUrl,
+                    amenities: acc.tags || [],
+                    features: acc.uniqueFeatures || [],
+                    whatsapp: acc.whatsapp,
+                    brochureUrl: acc.brochureUrl,
+                }));
+                setAccommodations(mapped);
+                console.log('Mapped accommodations:', mapped);
+                setLoading(false);
+            } catch (err) {
+                setError(err.message);
+                setLoading(false);
+            }
+        };
+        fetchAccommodations();
+    }, []);
+
+    const filteredAccommodations = activeFilter === 'All'
+        ? accommodations
         : accommodations.filter(acc => acc.type === activeFilter);
     
     return (
@@ -221,98 +150,111 @@ function Stay() {
                     ))}
                 </div>
 
-                {/* Accommodations grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-                    {filteredAccommodations.map((accommodation) => (
-                        <div 
-                            key={accommodation.id} 
-                            className="group"
-                            onMouseEnter={() => setActiveAccommodation(accommodation.id)}
-                            onMouseLeave={() => setActiveAccommodation(null)}
-                        >
-                            <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 h-full flex flex-col">
-                                {/* Image container */}
-                                <div className="relative h-64 overflow-hidden">
-                                    <img 
-                                        src={accommodation.image} 
-                                        alt={accommodation.title} 
-                                        className="w-full h-full object-cover transition duration-700 group-hover:scale-110"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.7)] to-transparent"></div>
-                                    
-                                    {/* Location and type badge */}
-                                    <div className="absolute top-4 left-4 right-4 flex justify-between items-center">
-                                        <span className="bg-white/90 backdrop-blur-sm text-[var(--primary)] text-xs font-satoshiMed px-3 py-1.5 rounded-full">
-                                            {accommodation.location}
-                                        </span>
-                                        <span className="bg-[var(--primary)]/90 backdrop-blur-sm text-white text-xs font-satoshiMed px-3 py-1.5 rounded-full">
-                                            {accommodation.type}
-                                        </span>
-                                    </div>
-                                    
-                                    {/* Price and rating */}
-                                    <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center">
-                                        <span className="text-white font-satoshiMed text-sm">
-                                            {accommodation.priceRange}
-                                        </span>
-                                        <div className="flex items-center bg-white/90 backdrop-blur-sm px-2 py-1 rounded-full">
-                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-yellow-500" viewBox="0 0 20 20" fill="currentColor">
-                                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                            </svg>
-                                            <span className="text-xs font-satoshiMed text-gray-800 ml-1">{accommodation.rating}</span>
-                                            <span className="text-xs text-gray-500 ml-1">({accommodation.reviewCount})</span>
+                {/* Loading and error states */}
+                {loading ? (
+                    <div className="flex justify-center items-center py-20">
+                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[var(--primary)]"></div>
+                        <span className="ml-3 text-[var(--primary)] font-satoshiMed">Loading accommodations...</span>
+                    </div>
+                ) : error ? (
+                    <div className="text-center py-20">
+                        <p className="text-red-500 mb-4">{error}</p>
+                        <button onClick={() => window.location.reload()} className="text-[var(--primary)] underline">Try again</button>
+                    </div>
+                ) : (
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                        {filteredAccommodations.map((accommodation) => (
+                            <div 
+                                key={accommodation.id} 
+                                className="group"
+                                onMouseEnter={() => setActiveAccommodation(accommodation.id)}
+                                onMouseLeave={() => setActiveAccommodation(null)}
+                            >
+                                <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 h-full flex flex-col">
+                                    {/* Image container */}
+                                    <div className="relative h-64 overflow-hidden">
+                                        <img 
+                                            src={accommodation.image} 
+                                            alt={accommodation.title} 
+                                            className="w-full h-full object-cover transition duration-700 group-hover:scale-110"
+                                            onError={e => { e.target.onerror = null; e.target.src = "https://images.unsplash.com/photo-1455587734955-081b22074882?q=80&w=2670&auto=format&fit=crop"; }}
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.7)] to-transparent"></div>
+                                        {/* Location and type badge */}
+                                        <div className="absolute top-4 left-4 right-4 flex justify-between items-center">
+                                            <span className="bg-white/90 backdrop-blur-sm text-[var(--primary)] text-xs font-satoshiMed px-3 py-1.5 rounded-full">
+                                                {accommodation.location}
+                                            </span>
+                                            <span className="bg-[var(--primary)]/90 backdrop-blur-sm text-white text-xs font-satoshiMed px-3 py-1.5 rounded-full">
+                                                {accommodation.type}
+                                            </span>
+                                        </div>
+                                        {/* Price and rating */}
+                                        <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center">
+                                            <span className="text-white font-satoshiMed text-sm">
+                                                {accommodation.priceRange}
+                                            </span>
+                                            <div className="flex items-center bg-white/90 backdrop-blur-sm px-2 py-1 rounded-full">
+                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-yellow-500" viewBox="0 0 20 20" fill="currentColor">
+                                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                                </svg>
+                                                <span className="text-xs font-satoshiMed text-gray-800 ml-1">{accommodation.rating}</span>
+                                                <span className="text-xs text-gray-500 ml-1">({accommodation.reviewCount})</span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                
-                                {/* Content section */}
-                                <div className="p-6 flex-1 flex flex-col">
-                                    <h3 className="font-satoshi text-xl font-bold text-[var(--text-dark)] mb-2 group-hover:text-[var(--primary)] transition-colors">
-                                        {accommodation.title}
-                                    </h3>
-                                    <p className="font-satoshiMed text-[15px] text-gray-600 mb-4 flex-grow">
-                                        {accommodation.description}
-                                    </p>
-                                    
-                                    {/* Amenities */}
-                                    <div className="mb-5">
-                                        <div className="flex flex-wrap gap-2">
-                                            {accommodation.amenities.slice(0, 4).map((amenity, index) => (
-                                                <span key={index} className="inline-flex items-center text-xs font-satoshiMed px-2.5 py-1 rounded-full bg-[var(--cream)] text-gray-700">
-                                                    {amenity}
-                                                </span>
-                                            ))}
-                                            {accommodation.amenities.length > 4 && (
-                                                <span className="inline-flex items-center text-xs font-satoshiMed px-2.5 py-1 rounded-full bg-[var(--cream)] text-gray-700">
-                                                    +{accommodation.amenities.length - 4} more
-                                                </span>
-                                            )}
+                                    {/* Content section */}
+                                    <div className="p-6 flex-1 flex flex-col">
+                                        <h3 className="font-satoshi text-xl font-bold text-[var(--text-dark)] mb-2 group-hover:text-[var(--primary)] transition-colors">
+                                            {accommodation.title}
+                                        </h3>
+                                        <p className="font-satoshiMed text-[15px] text-gray-600 mb-4 flex-grow">
+                                            {accommodation.description}
+                                        </p>
+                                        {/* Amenities */}
+                                        <div className="mb-5">
+                                            <div className="flex flex-wrap gap-2">
+                                                {accommodation.amenities && accommodation.amenities.slice(0, 4).map((amenity, index) => (
+                                                    <span key={index} className="inline-flex items-center text-xs font-satoshiMed px-2.5 py-1 rounded-full bg-[var(--cream)] text-gray-700">
+                                                        {amenity}
+                                                    </span>
+                                                ))}
+                                                {accommodation.amenities && accommodation.amenities.length > 4 && (
+                                                    <span className="inline-flex items-center text-xs font-satoshiMed px-2.5 py-1 rounded-full bg-[var(--cream)] text-gray-700">
+                                                        +{accommodation.amenities.length - 4} more
+                                                    </span>
+                                                )}
+                                            </div>
                                         </div>
+                                        {/* Features - shown on hover or mobile tap */}
+                                        <div className={`overflow-hidden transition-all duration-300 mb-4 ${activeAccommodation === accommodation.id ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}>
+                                            <div className="w-full h-px bg-gray-200 mb-4"></div>
+                                            <h4 className="font-satoshi font-bold text-sm text-[var(--primary)] mb-2">Unique Features:</h4>
+                                            <ul className="text-[13px] text-gray-600 space-y-1 pl-5 list-disc">
+                                                {accommodation.features && accommodation.features.slice(0, 2).map((feature, index) => (
+                                                    <li key={index}>{feature}</li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                        {/* CTA button */}
+                                        {accommodation.brochureUrl ? (
+                                            <a href={accommodation.brochureUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full px-4 py-2.5 rounded-full border-2 border-[var(--primary)] text-[var(--primary)] font-satoshi font-bold hover:bg-[var(--primary)] hover:text-white transition-colors group">
+                                                View Brochure
+                                            </a>
+                                        ) : (
+                                            <a href={`#booking-${accommodation.id}`} className="inline-flex items-center justify-center w-full px-4 py-2.5 rounded-full border-2 border-[var(--primary)] text-[var(--primary)] font-satoshi font-bold hover:bg-[var(--primary)] hover:text-white transition-colors group">
+                                                View Details & Book
+                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                                </svg>
+                                            </a>
+                                        )}
                                     </div>
-                                    
-                                    {/* Features - shown on hover or mobile tap */}
-                                    <div className={`overflow-hidden transition-all duration-300 mb-4 ${activeAccommodation === accommodation.id ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}>
-                                        <div className="w-full h-px bg-gray-200 mb-4"></div>
-                                        <h4 className="font-satoshi font-bold text-sm text-[var(--primary)] mb-2">Unique Features:</h4>
-                                        <ul className="text-[13px] text-gray-600 space-y-1 pl-5 list-disc">
-                                            {accommodation.features.slice(0, 2).map((feature, index) => (
-                                                <li key={index}>{feature}</li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                    
-                                    {/* CTA button */}
-                                    <a href={`#booking-${accommodation.id}`} className="inline-flex items-center justify-center w-full px-4 py-2.5 rounded-full border-2 border-[var(--primary)] text-[var(--primary)] font-satoshi font-bold hover:bg-[var(--primary)] hover:text-white transition-colors group">
-                                        View Details & Book
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                        </svg>
-                                    </a>
                                 </div>
                             </div>
-                        </div>
-                    ))}
-                </div>
+                        ))}
+                    </div>
+                )}
                 
                 {/* Additional information section */}
                 <div className="mt-20 bg-white rounded-2xl p-8 md:p-12 shadow-md max-w-5xl mx-auto">
