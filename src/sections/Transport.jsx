@@ -3,7 +3,7 @@ import CTABtn from '../components/CTABtn'
 
 function Transport() {
     const [activeTab, setActiveTab] = useState('transport');
-    const [selectedRegion, setSelectedRegion] = useState('Darjeeling');
+    const [selectedRegion, setSelectedRegion] = useState('All');
     const mapRef = useRef(null);
     const [transportOptions, setTransportOptions] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -27,8 +27,8 @@ function Transport() {
                     reviewCount: tr.reviews,
                     description: tr.description,
                     image: tr.imageUrl,
-                    features: tr.uniqueFeatures || [],
-                    schedule: tr.schedule,
+                    features: tr.keyFeatures || [],
+                    schedule: tr.departureInfo,
                 }));
                 console.log('Mapped transport options:', mapped);
                 setTransportOptions(mapped);
