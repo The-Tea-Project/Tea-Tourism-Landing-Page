@@ -4,7 +4,6 @@ import CTABtn from '../components/CTABtn'
 function Stay() {
     const [accommodations, setAccommodations] = useState([]);
     const [activeFilter, setActiveFilter] = useState('All');
-    const [activeAccommodation, setActiveAccommodation] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -19,7 +18,6 @@ function Stay() {
                 if (!response) throw new Error('Failed to fetch accommodations');
 
                 const data = await response.json();
-                console.log('Fetched accommodations:', data);
                 // Map API fields to UI fields
                 const mapped = data.map(acc => ({
                     id: acc._id,
@@ -37,7 +35,6 @@ function Stay() {
                     brochureUrl: acc.brochureUrl,
                 }));
                 setAccommodations(mapped);
-                console.log('Mapped accommodations:', mapped);
                 setLoading(false);
             } catch (err) {
                 setError(err.message);
@@ -50,7 +47,7 @@ function Stay() {
     const filteredAccommodations = activeFilter === 'All'
         ? accommodations
         : accommodations.filter(acc => acc.type === activeFilter);
-    
+
     return (
         <div id="accommodations" className="w-full bg-[var(--light-bg)] to-[#f7f9fc] py-[100px] relative overflow-hidden">
             {/* Unique architectural elements */}
@@ -123,7 +120,7 @@ function Stay() {
                 </svg>
             </div>
             
-            <div className="container mx-auto px-4 relative z-10">
+             <div className="container mx-auto px-4 relative z-10">
                 <div className="text-center mb-16 max-w-3xl mx-auto">
                     <span className="inline-block py-1 px-3 rounded-full bg-[var(--primary-light)] bg-opacity-20 text-[var(--primary)] text-sm font-medium mb-4">ACCOMMODATIONS</span>
                     <h2 className="font-satoshi text-[40px] lg:text-[56px] font-bold mb-6 text-[var(--text-dark)]">Stay in Tea Country</h2>
@@ -167,10 +164,9 @@ function Stay() {
                             <div 
                                 key={accommodation.id} 
                                 className="group"
-                                onMouseEnter={() => setActiveAccommodation(accommodation.id)}
-                                onMouseLeave={() => setActiveAccommodation(null)}
                             >
                                 <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 h-full flex flex-col">
+                                    
                                     {/* Image container */}
                                     <div className="relative h-64 overflow-hidden">
                                         <img 
@@ -180,6 +176,7 @@ function Stay() {
                                             onError={e => { e.target.onerror = null; e.target.src = "https://images.unsplash.com/photo-1455587734955-081b22074882?q=80&w=2670&auto=format&fit=crop"; }}
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.7)] to-transparent"></div>
+                                        
                                         {/* Location and type badge */}
                                         <div className="absolute top-4 left-4 right-4 flex justify-between items-center">
                                             <span className="bg-white/90 backdrop-blur-sm text-[var(--primary)] text-xs font-satoshiMed px-3 py-1.5 rounded-full">
@@ -189,6 +186,7 @@ function Stay() {
                                                 {accommodation.type}
                                             </span>
                                         </div>
+
                                         {/* Price and rating */}
                                         <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center">
                                             <span className="text-white font-satoshiMed text-sm">
@@ -203,6 +201,7 @@ function Stay() {
                                             </div>
                                         </div>
                                     </div>
+
                                     {/* Content section */}
                                     <div className="p-6 flex-1 flex flex-col">
                                         <h3 className="font-satoshi text-xl font-bold text-[var(--text-dark)] mb-2 group-hover:text-[var(--primary)] transition-colors">
@@ -211,6 +210,7 @@ function Stay() {
                                         <p className="font-satoshiMed text-[15px] text-gray-600 mb-4 flex-grow">
                                             {accommodation.description}
                                         </p>
+                                        
                                         {/* Amenities */}
                                         <div className="mb-5">
                                             <div className="flex flex-wrap gap-2">
@@ -226,8 +226,9 @@ function Stay() {
                                                 )}
                                             </div>
                                         </div>
-                                        {/* Features - shown on hover or mobile tap */}
-                                        <div className={`overflow-hidden transition-all duration-300 mb-4 ${activeAccommodation === accommodation.id ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}>
+
+                                        {/* Features - scoped to card hover */}
+                                        <div className="overflow-hidden transition-all duration-300 mb-4 max-h-0 opacity-0 group-hover:max-h-40 group-hover:opacity-100">
                                             <div className="w-full h-px bg-gray-200 mb-4"></div>
                                             <h4 className="font-satoshi font-bold text-sm text-[var(--primary)] mb-2">Unique Features:</h4>
                                             <ul className="text-[13px] text-gray-600 space-y-1 pl-5 list-disc">
@@ -236,6 +237,7 @@ function Stay() {
                                                 ))}
                                             </ul>
                                         </div>
+
                                         {/* CTA button */}
                                         {accommodation.brochureUrl ? (
                                             <a href={accommodation.brochureUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full px-4 py-2.5 rounded-full border-2 border-[var(--primary)] text-[var(--primary)] font-satoshi font-bold hover:bg-[var(--primary)] hover:text-white transition-colors group">
