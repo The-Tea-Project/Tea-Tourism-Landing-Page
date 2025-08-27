@@ -28,8 +28,8 @@ function NavBar() {
                     ))}
                 </div>
                 <div className="flex justify-center items-center">
-                    <a href="#cta">
-                        <div className="lg:text-sm text-[12px] whitespace-nowrap font-medium mx-2 font-satoshi bg-[var(--primary)] text-white px-[25px] py-[10px] rounded-full hover:bg-[var(--primary-dark)] transition-colors">Explore Now</div>
+                    <a href="https://theteaprojadmin.vercel.app/">
+                        <div className="lg:text-sm text-[12px] whitespace-nowrap font-medium mx-2 font-satoshi bg-[var(--primary)] text-white px-[25px] py-[10px] rounded-full hover:bg-[var(--primary-dark)] transition-colors">Sign In</div>
                     </a>
                 </div>
             </div>
