@@ -1,5 +1,3 @@
-import React from 'react'
-
 function NavBar() {
     const navItems = [
         { title: 'Home', href: '/', className: "text-[var(--primary)] font-satoshi " },
@@ -32,11 +30,13 @@ function NavBar() {
                         <div className="lg:text-sm text-[12px] whitespace-nowrap font-medium mx-2 font-satoshi bg-[var(--primary)] text-white px-[25px] py-[10px] rounded-full hover:bg-[var(--primary-dark)] transition-colors">Sensor Monitoring</div>
                     </a>
                 </div>
-                <div className="flex justify-center items-center">
-                    <a href="https://theteaprojadmin.vercel.app/">
-                        <div className="lg:text-sm text-[12px] whitespace-nowrap font-medium mx-2 font-satoshi bg-[var(--primary)] text-white px-[25px] py-[10px] rounded-full hover:bg-[var(--primary-dark)] transition-colors">Sign In</div>
-                    </a>
-                </div>
+                {window.location.pathname === '/admin' && (
+                    <div className="flex justify-center items-center">
+                        <a href="https://theteaprojadmin.vercel.app/sign-in">
+                            <div className="lg:text-sm text-[12px] whitespace-nowrap font-medium mx-2 font-satoshi bg-[var(--primary)] text-white px-[25px] py-[10px] rounded-full hover:bg-[var(--primary-dark)] transition-colors">Upload your details</div>
+                        </a>
+                    </div>
+                )}
             </div>
         </>
     )

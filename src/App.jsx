@@ -15,6 +15,7 @@ import Room from './stay/Room'
 import Transport from './pages/Transport'
 import TransportPage from './transport/TransportPage'
 import CourseDetail from './courses/CourseDetail'
+import Landing from './pages/Landing'
 export default function App() {
 
   return (
@@ -22,7 +23,9 @@ export default function App() {
       {/* <ScrollToTop /> */}
       {/* <NavBar /> */}
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Landing />} />
+        <Route path="/user" element={<Home />} />
+        <Route path="/admin" element={<Home />} />
         <Route path="/products" element={<Products />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/blogs/:id" element={<BlogPost />} />
